@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kware Senior School | Embakasi, Nairobi</title>
+  <meta name="description" content="Kware Senior School (formerly Kware Secondary School) - Public Mixed Day Senior School in Embakasi South, Nairobi. C4 Cluster, CBC Pathways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b3d6e;
+      --primary-dark: #082b4d;
+      --accent: #c9a227;
+      --light: #f8fafc;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* Header */
+    header {
+      background: var(--primary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      margin-left: 1.8rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #1a5a9e 100%);
+      color: white;
+      padding: 5.5rem 1.5rem 4.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.92;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #1a1a1a;
+      padding: 0.85rem 1.9rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(201,162,39,0.35);
+    }
+
+    /* Sections */
+    section {
+      padding: 4.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.1rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p { margin-bottom: 1.1rem; color: #334155; }
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .info-card {
+      background: var(--light);
+      border-left: 4px solid var(--accent);
+      padding: 1.1rem 1.2rem;
+      border-radius: 6px;
+    }
+
+    .info-card strong {
+      display: block;
+      color: var(--primary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Pathways */
+    .pathways {
+      background: var(--light);
+    }
+
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .pathway-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem 1.6rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      transition: transform 0.25s;
+    }
+
+    .pathway-card:hover { transform: translateY(-5px); }
+
+    .pathway-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      font-size: 1.35rem;
+    }
+
+    .pathway-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .pathway-card li {
+      padding: 0.3rem 0;
+      color: #475569;
+      position: relative;
+      padding-left: 1.3rem;
+    }
+
+    .pathway-card li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* School Facts */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .fact {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .fact .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+    }
+
+    .fact .label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info strong { 
+      display: inline-block;
+      min-width: 110px; 
+      color: var(--primary); 
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.85rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(11,61,110,0.12);
+    }
+
+    button[type="submit"] {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.95rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover { background: var(--primary-dark); }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* Social Media Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 1.4rem 0 1.6rem;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: var(--accent);
+      color: #1a1a1a;
+      transform: translateY(-3px);
+    }
+
+    .social-icons svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* ===== WhatsApp Floating Button ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+
+    .whatsapp-float::after {
+      content: "Chat on WhatsApp";
+      position: absolute;
+      right: 70px;
+      background: #333;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .whatsapp-float:hover::after {
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .menu-toggle { display: block; }
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        padding: 1rem 0;
+      }
+      nav.active a {
+        margin: 0.6rem 1.5rem;
+      }
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-cards { grid-template-columns: 1fr; }
+
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Kware <span>Senior School</span></div>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#academics">Academics</a>
+        <a href="#info">School Info</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="badge">Public • Mixed • Day • C4 Cluster</div>
+    <h1>Kware Senior School</h1>
+    <p>Formerly Kware Secondary School — A public senior school in Embakasi South, Nairobi, offering quality Competency-Based Education for Grades 10–12.</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Our School</h2>
+      <p class="section-subtitle">Serving the Embakasi community with accessible, quality secondary education.</p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>Kware Senior School</strong> (formerly known as Kware Secondary School) is a public mixed day secondary school located in Embakasi South Sub-County, Nairobi County, Kenya.</p>
+          <p>It operates as a <strong>C4 Cluster</strong> Senior School under Kenya’s Competency-Based Curriculum (CBC), hosting learners in Grades 10, 11 and 12.</p>
+          <p>The school is situated in the Kware neighbourhood (near Pipeline and Mukuru), approximately 9 km east of Nairobi’s Central Business District, and plays an important role in providing secondary education to the local community.</p>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <strong>Type</strong>
+            Public Mixed Day
+          </div>
+          <div class="info-card">
+            <strong>Cluster</strong>
+            C4 (Sub-County)
+          </div>
+          <div class="info-card">
+            <strong>KNEC Code</strong>
+            20408016
+          </div>
+          <div class="info-card">
+            <strong>UIC Code</strong>
+            FYU6
+          </div>
+          <div class="info-card">
+            <strong>Location</strong>
+            Embakasi South, Nairobi
+          </div>
+          <div class="info-card">
+            <strong>Postal Code</strong>
+            00501
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academics / Pathways -->
+  <section class="pathways" id="academics">
+    <div class="container">
+      <h2 class="section-title">CBC Pathways</h2>
+      <p class="section-subtitle">Learners specialise in one of the three main pathways offered under the Competency-Based Curriculum.</p>
+
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <h3>STEM</h3>
+          <p>Science, Technology, Engineering & Mathematics</p>
+          <ul>
+            <li>Sciences (Physics, Chemistry, Biology)</li>
+            <li>Mathematics</li>
+            <li>Computer Studies / ICT</li>
+            <li>Technical subjects</li>
+          </ul>
+        </div>
+
+        <div class="pathway-card">
+          <h3>Social Sciences</h3>
+          <p>Humanities & Business Studies</p>
+          <ul>
+            <li>History & Government</li>
+            <li>Geography</li>
+            <li>Business Studies</li>
+            <li>Religious Education</li>
+            <li>Languages</li>
+          </ul>
+        </div>
+
+        <div class="pathway-card">
+          <h3>Arts & Sports</h3>
+          <p>Performing / Visual Arts & Physical Education</p>
+          <ul>
+            <li>Music / Drama</li>
+            <li>Fine Art / Design</li>
+            <li>Physical Education</li>
+            <li>Sports Science</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- School Info -->
+  <section id="info">
+    <div class="container">
+      <h2 class="section-title">School Information</h2>
+      <p class="section-subtitle">Key facts about Kware Senior School</p>
+
+      <div class="facts-grid">
+        <div class="fact">
+          <span class="value">C4</span>
+          <span class="label">Cluster / Category</span>
+        </div>
+        <div class="fact">
+          <span class="value">Day</span>
+          <span class="label">Accommodation</span>
+        </div>
+        <div class="fact">
+          <span class="value">Mixed</span>
+          <span class="label">Gender</span>
+        </div>
+        <div class="fact">
+          <span class="value">Public</span>
+          <span class="label">Sponsorship</span>
+        </div>
+        <div class="fact">
+          <span class="value">20408016</span>
+          <span class="label">KNEC Code</span>
+        </div>
+        <div class="fact">
+          <span class="value">FYU6</span>
+          <span class="label">UIC Code</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem; background: #f1f5f9; padding: 1.8rem; border-radius: 10px;">
+        <h3 style="color: var(--primary); margin-bottom: 0.8rem;">Fees Note (2026)</h3>
+        <p style="color: #475569;">As a <strong>public day senior school (C4)</strong>, government capitation covers the approved day-school costs. Parents of day senior school learners currently pay <strong>no tuition fees</strong> under the official Ministry of Education fee structure. Always confirm the latest fee guidelines and any approved levies directly with the school administration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="background: var(--light);">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">We welcome enquiries from parents, guardians and the community.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><strong>Phone / WhatsApp</strong> 0721 617 053</p>
+          <p><strong>Location</strong> Embakasi South Sub-County<br>Kware, Nairobi County, Kenya</p>
+          <p><strong>Postal Code</strong> 00501</p>
+          <p><strong>KNEC Code</strong> 20408016</p>
+          <p><strong>UIC</strong> FYU6</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Thank you! This is a demo form. Please contact the school on WhatsApp 0721617053 for official enquiries.');">
+          <input type="text" placeholder="Your Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number">
+          <textarea rows="5" placeholder="Your Message / Enquiry" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p style="font-size: 1.05rem; margin-bottom: 0.3rem;">Kware Senior School</p>
+    <p style="opacity: 0.75;">Embakasi South, Nairobi • C4 Public Day School</p>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+      <!-- Facebook - replace # with real link -->
+      <a href="#" target="_blank" aria-label="Facebook" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+      </a>
+
+      <!-- Instagram - replace # with real link -->
+      <a href="#" target="_blank" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.12.14 4.79 1.82 4.93 4.93.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.14 3.11-1.81 4.79-4.93 4.93-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.12-.14-4.79-1.82-4.93-4.93-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.14-3.11 1.81-4.79 4.93-4.93 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.3.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.84a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+      </a>
+
+      <!-- X (Twitter) - replace # with real link -->
+      <a href="#" target="_blank" aria-label="X (Twitter)" title="X">
+        <svg viewBox="0 0 24 24"><path d="M18.24 2H21.8l-7.1 8.12L22.5 22h-6.94l-5.44-7.11L4.5 22H.94l7.6-8.69L1.5 2h7.1l4.9 6.55L18.24 2zm-1.22 18h1.93L7.05 4H4.98l12.04 16z"/></svg>
+      </a>
+
+      <!-- YouTube - replace # with real link -->
+      <a href="#" target="_blank" aria-label="YouTube" title="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.84.55 9.38.55 9.38.55s7.54 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+      </a>
+    </div>
+
+    <p>© 2026 Kware Senior School • Phone/WhatsApp: 0721 617 053</p>
+    <p style="margin-top: 0.4rem; opacity: 0.65; font-size: 0.85rem;">Public Mixed Day Senior School • C4 Cluster • KNEC Code 20408016</p>
+  </footer>
+
+  <!-- WhatsApp Floating Button - Real Number -->
+  <a href="https://wa.me/254721617053?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Kware%20Senior%20School"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 2.832.736 5.586 2.138 8.016L.084 31.25l7.426-1.946A15.94 15.94 0 0016.004 32C24.83 32 32 24.824 32 15.996 32 7.176 24.83 0 16.004 0zm9.27 22.614c-.39 1.102-1.938 2.016-3.178 2.282-.836.176-1.926.316-5.602-1.204-4.702-1.94-7.73-6.706-7.966-7.014-.228-.308-1.906-2.536-1.906-4.836s1.204-3.43 1.632-3.9c.39-.428.852-.534 1.138-.534.286 0 .572.002.822.016.264.012.616-.1.964.736.39.94 1.324 3.236 1.44 3.47.118.234.198.508.04.812-.158.304-.236.492-.468.756-.234.264-.492.59-.702.792-.234.234-.476.488-.204.958.272.47 1.208 1.99 2.592 3.222 1.78 1.586 3.28 2.078 3.75 2.312.47.234.742.196 1.016-.118.274-.314 1.176-1.372 1.49-1.842.314-.47.628-.392.998-.234.39.158 2.47 1.166 2.894 1.378.424.212.706.318.81.494.104.176.104 1.02-.286 2.122z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => nav.classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
